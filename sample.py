@@ -2,6 +2,27 @@ import bpy
 import numpy as np
 import os
 
+
+##############################################################################################################
+###  環境設定  ###############################################################################################
+##############################################################################################################
+"""
+環境変数の取得
+Mac/LinuxではHOME
+WindowsではHOMEPATHやUSERPROFILEという環境変数に格納
+"""
+
+home_directory = (
+                  os.environ.get('HOME') or
+                  os.environ.get('HOMEPATH') or
+                  os.environ.get('USERPROFILE')
+                )
+
+##############################################################################################################
+
+
+
+
 ##############################################################################################################
 ###  前処理  #################################################################################################
 ##############################################################################################################
@@ -17,7 +38,7 @@ import os
 import shutil
 
 # 作業用フォルダのパス
-temp_folder_path = "C:/Users/UserProfile/Desktop/Blender_files/meshes/temp_folder"
+temp_folder_path = f"{home_directory}/Desktop/Blender_files/meshes/temp_folder"
 
 # フォルダが存在するかどうかを確認
 if not os.path.exists(temp_folder_path):
@@ -132,14 +153,14 @@ resolution_y = 1080
 image_resolution_percentage = 100
 
 # 動画の画質 => 画質 max:100 min:0
-movie_resolution_percentage = 50
+movie_resolution_percentage = 10
 
 # フレームレート
 fps = 30
 
 # アニメーションの開始フレームと終了フレーム
 start_frame = 0
-end_frame = 60
+end_frame = 30
 
 ##############################################################################################################
 
@@ -172,7 +193,7 @@ end_frame = 60
 """
 
 # 被写体オブジェクトが入ったディレクトリのすべての.blenderファイルのフルパスリストを取得
-blender_files_list = get_blender_files_full_path("C:/Users/UserProfile/Desktop/Blender_files/meshes")
+blender_files_list = get_blender_files_full_path(f"{home_directory}/Desktop/Blender_files/meshes")
 
 for file_path in blender_files_list:  
     
@@ -185,7 +206,7 @@ for file_path in blender_files_list:
     作業用フォルダに.blenderファイルをコピー
     """
     # 作業用フォルダのパス
-    # temp_folder_path = "C:/Users/UserProfile/Desktop/Blender_files/meshes/temp_folder"
+    # temp_folder_path = f"{home_directory}/Desktop/Blender_files/meshes/temp_folder"
     shutil.copy(file_path, temp_folder_path)
     
     # 作業用フォルダにコピーされた.blenderファイルのフルパス  
@@ -248,7 +269,7 @@ for file_path in blender_files_list:
     bpy.ops.render.render(use_viewport=True)
 
     #　レンダリング結果を保存 => ファイル名は上で取得したファイル名
-    bpy.data.images['Render Result'].save_render( filepath = f"C:/Users/UserProfile/Desktop/Blender_files/images/{file_name}_{year}_{month}{day}_{hour}{minute}.png")
+    bpy.data.images['Render Result'].save_render( filepath = f"{home_directory}/Desktop/Blender_files/images/{file_name}_{year}_{month}{day}_{hour}{minute}.png")
 
 
 
@@ -308,7 +329,7 @@ for file_path in blender_files_list:
     bpy.context.scene.render.fps = fps
 
     # レンダリングムービーの保存先 => ファイル名は上で取得したファイル名
-    bpy.data.scenes["Scene"].render.filepath = f"C:/Users/UserProfile/Desktop/Blender_files/movies/{file_name}_{year}_{month}{day}_{hour}{minute}.mp4"
+    bpy.data.scenes["Scene"].render.filepath = f"{home_directory}/Desktop/Blender_files/movies/{file_name}_{year}_{month}{day}_{hour}{minute}.mp4"
     bpy.ops.render.render(animation=True)
 
 
