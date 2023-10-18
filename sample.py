@@ -17,7 +17,7 @@ import os
 import shutil
 
 # 作業用フォルダのパス
-temp_folder_path = "C:/Users/owner/Desktop/Blender_files/meshes/temp_folder"
+temp_folder_path = "C:/Users/UserProfile/Desktop/Blender_files/meshes/temp_folder"
 
 # フォルダが存在するかどうかを確認
 if not os.path.exists(temp_folder_path):
@@ -172,7 +172,7 @@ end_frame = 60
 """
 
 # 被写体オブジェクトが入ったディレクトリのすべての.blenderファイルのフルパスリストを取得
-blender_files_list = get_blender_files_full_path("C:/Users/owner/Desktop/Blender_files/meshes")
+blender_files_list = get_blender_files_full_path("C:/Users/UserProfile/Desktop/Blender_files/meshes")
 
 for file_path in blender_files_list:  
     
@@ -185,7 +185,7 @@ for file_path in blender_files_list:
     作業用フォルダに.blenderファイルをコピー
     """
     # 作業用フォルダのパス
-    # temp_folder_path = "C:/Users/owner/Desktop/Blender_files/meshes/temp_folder"
+    # temp_folder_path = "C:/Users/UserProfile/Desktop/Blender_files/meshes/temp_folder"
     shutil.copy(file_path, temp_folder_path)
     
     # 作業用フォルダにコピーされた.blenderファイルのフルパス  
@@ -248,7 +248,7 @@ for file_path in blender_files_list:
     bpy.ops.render.render(use_viewport=True)
 
     #　レンダリング結果を保存 => ファイル名は上で取得したファイル名
-    bpy.data.images['Render Result'].save_render( filepath = f"C:/Users/owner/Desktop/Blender_files/images/{file_name}_{year}_{month}{day}_{hour}{minute}.png")
+    bpy.data.images['Render Result'].save_render( filepath = f"C:/Users/UserProfile/Desktop/Blender_files/images/{file_name}_{year}_{month}{day}_{hour}{minute}.png")
 
 
 
@@ -308,7 +308,7 @@ for file_path in blender_files_list:
     bpy.context.scene.render.fps = fps
 
     # レンダリングムービーの保存先 => ファイル名は上で取得したファイル名
-    bpy.data.scenes["Scene"].render.filepath = f"C:/Users/owner/Desktop/Blender_files/movies/{file_name}_{year}_{month}{day}_{hour}{minute}.mp4"
+    bpy.data.scenes["Scene"].render.filepath = f"C:/Users/UserProfile/Desktop/Blender_files/movies/{file_name}_{year}_{month}{day}_{hour}{minute}.mp4"
     bpy.ops.render.render(animation=True)
 
 
