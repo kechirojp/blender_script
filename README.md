@@ -44,7 +44,7 @@ meshesフォルダ（被写体ファイルを入れるフォルダ）に入っ�
 4. Blender_Auto.batの**sample.pyのパスは各自の環境に書き換えてください。**
  以下はBlender3.6の場合
 ```
-blender "%USERPROFILE%\Desktop\Blender_files\studio\studio.blend" --background --python "C:\Program Files\Blender Foundation\Blender **3.6**\\**3.6**\scripts\sample.py"
+blender "%USERPROFILE%\Desktop\Blender_files\studio\studio.blend" --background --python "C:\Program Files\Blender Foundation\Blender 3.6\3.6\scripts\sample.py"
 ```
 
   ※.batファイルの書き換えの方法
