@@ -217,7 +217,8 @@ for file_path in blender_files_list:
     
     """
     オブジェクトの追加
-    ・blenderファイルからオブジェクトを追加する
+    ・blendファイルからオブジェクトを追加する => append
+    ※ .blend以外 => import
     """
     # file_path：フルパスでBlendファイルを指定する
     file_path
