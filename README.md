@@ -7,6 +7,7 @@ meshesフォルダ（被写体ファイルを入れるフォルダ）に入っ�
  3. 静止画・動画の撮影
 ### 動画リンク
 [概要動画　【Blender】自動処理【python】](https://youtu.be/MgbRyBGY0Cg)
+![capture_image](img/img_capture.png)
 
 
 ## 使い方（ windows）
